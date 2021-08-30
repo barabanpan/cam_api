@@ -5,6 +5,7 @@ node_modules/
 # Compiled Python bytecode
 *.py[cod]
 __pycache__/
+code/cameras_project/__pycache__/
 # Log files
 *.log
 # Package files
