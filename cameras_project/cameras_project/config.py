@@ -9,6 +9,7 @@ env = dotenv_values(os.path.join(project_root, ".env"))
 class Config(object):
     DEBUG = env['DEBUG']
     SECRET_KEY = env['SECRET_KEY']
+    SECURE_SSL_REDIRECT = env['SECURE_SSL_REDIRECT']
 
     # postgresql configuration
     DB_NAME = env['DB_NAME']
