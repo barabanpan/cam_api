@@ -2,9 +2,8 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, permissions
 
-from .serializers import UserSerializer, GroupSerializer, RoomSerializer, CameraSerializer
-from .models import Camera, Room
-#from .utils import JsonResponse
+from .serializers import UserSerializer, GroupSerializer, RoomSerializer, CameraSerializer, LogsSerializer
+from .models import Camera, Room, Logs
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -29,15 +28,19 @@ class RoomViewSet(viewsets.ModelViewSet):
     queryset = Room.objects.all()
     serializer_class = RoomSerializer
     permission_classes = []
-    #def get(request, room_id):
-    #    room = Room.objects.get(pk=room_id)
-    #    return JsonResponse(room)
 
 
 class CameraViewSet(viewsets.ModelViewSet):
     queryset = Camera.objects.all()
     serializer_class = CameraSerializer
     permission_classes = []
+
+
+class LogsViewSet(viewsets.ModelViewSet):
+    queryset = Logs.objects.all()
+    serializer_class = LogsSerializer
+    permission_classes = []
+
 
 
 def index(request):

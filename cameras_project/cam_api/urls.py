@@ -9,6 +9,7 @@ router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'rooms', views.RoomViewSet)
 router.register(r'cameras', views.CameraViewSet)
+router.register(r'logs', views.LogsViewSet)
 
 app_name = 'cam_api'
 urlpatterns = [
