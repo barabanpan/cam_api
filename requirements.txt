@@ -3,3 +3,5 @@ psycopg2-binary==2.9.1
 django-cors-headers==3.8.0
 gunicorn==20.0.4
 python-dotenv==0.17.0
+djangorestframework==3.12.4
+drf_writable_nested==0.6.3

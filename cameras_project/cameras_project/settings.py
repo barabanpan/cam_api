@@ -29,7 +29,7 @@ DEBUG = Config.DEBUG
 
 # SECURE_SSL_REDIRECT = Config.SECURE_SSL_REDIRECT
 
-ALLOWED_HOSTS = [] #'*']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -57,6 +58,10 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
 
 ROOT_URLCONF = 'cameras_project.urls'
 
