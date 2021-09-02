@@ -13,7 +13,7 @@ class Camera(models.Model):
 
 
 class Logs(models.Model):
-    timestamp = models.IntegerField()
+    date_time = models.DateTimeField()
     camera = models.ForeignKey(Camera, on_delete=models.CASCADE)  # ??
     n_people = models.IntegerField('number or people', default=0)
 
