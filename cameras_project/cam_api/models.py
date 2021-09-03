@@ -20,10 +20,7 @@ class Logs(models.Model):
 
 class DayRoomStats(models.Model):
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
-    year = models.IntegerField()
-    week = models.IntegerField()
-    month = models.IntegerField()
-    day = models.IntegerField()
+    date_time = models.DateTimeField()
     max_people = models.IntegerField()
     max_time = models.DateTimeField()
     min_people = models.IntegerField()
@@ -33,9 +30,7 @@ class DayRoomStats(models.Model):
 
 class WeekRoomStats(models.Model):
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
-    year = models.IntegerField()
-    week = models.IntegerField()
-    month = models.IntegerField()
+    date_time = models.DateTimeField()
     max_people = models.IntegerField()
     max_time = models.DateTimeField()
     min_people = models.IntegerField()
@@ -45,18 +40,17 @@ class WeekRoomStats(models.Model):
 
 class MonthRoomStats(models.Model):
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
-    year = models.IntegerField()
-    month = models.IntegerField()
+    date_time = models.DateTimeField()
     max_people = models.IntegerField()
     max_time = models.DateTimeField()
     min_people = models.IntegerField()
     min_time = models.DateTimeField()
-    avg_people = models.IntegerField()	
+    avg_people = models.IntegerField()
 
 
 class YearRoomStats(models.Model):
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
-    year = models.IntegerField()
+    date_time = models.DateTimeField()
     max_people = models.IntegerField()
     max_time = models.DateTimeField()
     min_people = models.IntegerField()
