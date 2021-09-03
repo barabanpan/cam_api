@@ -2,8 +2,9 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, permissions
 
-from .serializers import UserSerializer, GroupSerializer, RoomSerializer, CameraSerializer, LogsSerializer
-from .models import Camera, Room, Logs
+from .serializers import UserSerializer, GroupSerializer, RoomSerializer, CameraSerializer, LogsSerializer, \
+    DayRoomStatsSerializer
+from .models import Camera, Room, Logs, DayRoomStats
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -42,21 +43,7 @@ class LogsViewSet(viewsets.ModelViewSet):
     permission_classes = []
 
 
-
-def index(request):
-    return HttpResponse("index page")
-
-
-def list_rooms(request):
-    rooms = Room.objects.all()
-    return HttpResponse(rooms)
-
-
-def list_cameras(request):
-    cameras = Camera.objects.all()
-    return HttpResponse(cameras)
-
-
-def send_logs(request):  # make it post, how??
-    # body = request.body
-    return HttpResponse("body")
+class DayRoomStatsViewSet(viewsets.ModelViewSet):
+    queryset = DayRoomStats.objects.all()
+    serializer_class = DayRoomStatsSerializer
+    permission_classes = []

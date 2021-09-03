@@ -2,7 +2,7 @@ from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 from drf_writable_nested import WritableNestedModelSerializer
 
-from .models import Room, Camera, Logs
+from .models import Room, Camera, Logs, DayRoomStats
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -49,3 +49,11 @@ class LogsSerializer(WritableNestedModelSerializer, serializers.HyperlinkedModel
     class Meta:
         model = Logs
         fields = ['id', 'date_time', 'camera', 'n_people']
+
+
+class DayRoomStatsSerializer(serializers.HyperlinkedModelSerializer):
+    room = RoomIdSerializer()
+
+    class Meta:
+        model = DayRoomStats
+        fields = ['id', 'room', 'date_time', 'max_people', 'max_time', 'min_people', 'min_time', 'avg_people']
