@@ -15,6 +15,5 @@ router.register(r'dayroomstats', views.DayRoomStatsViewSet)
 app_name = 'cam_api'
 urlpatterns = [
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    #path('', views.index, name="index"),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
